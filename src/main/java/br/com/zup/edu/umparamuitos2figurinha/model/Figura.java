@@ -1,5 +1,6 @@
 package br.com.zup.edu.umparamuitos2figurinha.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -13,10 +14,13 @@ public class Figura {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 	
+	@Column(nullable = false)
 	private Integer pagina;
+	
+	@Column(nullable = false)
 	private String descricao;
 	
-	@ManyToOne
+	@ManyToOne(optional = false)
 	private Album album;
 	
 	public Figura(Integer pagina, String descricao) {
